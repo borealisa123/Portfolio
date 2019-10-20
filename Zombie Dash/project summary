@@ -1,3 +1,0 @@
-Built the backend of a game called Zombie Dash
-Wrote the classes using polymorphism and wrote managed the interaction between objects
-One notable example is determining object overlap vs object intersect, where one uses a the Euclidean distance between the center of two objects and the other uses a bounding box surrounding the object
