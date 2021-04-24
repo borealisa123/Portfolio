@@ -1,3 +1,5 @@
+; refer to "Mapping of square contents.png" for what each number means
+
 ; general movement
 (setq state1 '((0 0 0 0 0) (0 0 0 0 0) (0 0 3 0 0) (0 0 0 0 0) (0 0 0 0 0)))
 (setq state2 '((0 0 0 0 0) (0 0 0 0 0) (0 0 6 0 0) (0 0 0 0 0) (0 0 0 0 0)))
