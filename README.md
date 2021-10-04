@@ -4,7 +4,7 @@
 - Built a class that implemented a Trie-based multi-map
 - Worked with files that contained ~3 million bases (e.g. Ferroglobus_placidus's genome), storing the information in tries
 - Searched the tries and found exact matches and SNiPs (single nucleotide polymorphisms, i.e. an exact match excluding one base) of short DNA sequences
-- 
+
 ### Sokoban Solver (LISP)
 - function goal-test checks if the end condition of the search problem has been met, i.e. all the boxes and the keeper are on goal positions
 - function next-states takes a state and generates all the possible states that could be reached in one move
