@@ -1,7 +1,6 @@
 This is a long report
 
 Part 1 - My public member funtions
-The spec said "public" so I won't explain my protected or private ones unless I have time
 =======================================================================================================
 Actor
 -------------------------------------------------------------------------------------------------------
@@ -50,11 +49,9 @@ Wall(double x, double y, StudentWorld* world);
 	- Passes parameters to Actor along with IID_WALL
 	- (Actor has the default parameters of direction = 0 (right) and depth = 0)
 virtual void doSomething();
-
 	- Defined so Wall would not be abstract. Literally does nothing.
 	- Overridden virtual function
 virtual bool blocksFlames();
-
 	- True. So flames will know that this blocks them. 
 	- Overridden virtual function
 virtual bool checkIntersect();
@@ -97,7 +94,6 @@ Penelope(double x, double y, StudentWorld* world);
 	- Passes everything to Human
 	- Sets m_mines, m_gas, and m_vaccines to 0
 virtual void doSomething();
-
 	- Do what Penelope does. Basically her controls and also infection if that happens.
 	- I mean, it's literally does "What a Penelope Object Must Do During a Tick" line by line
 	  I can copy the text over or something
@@ -105,27 +101,20 @@ virtual void doSomething();
 	  pressed?
 	- Overridden virtual function
 void addMine();
-	- 
-Adds 2 mines to her inventory
+	- Adds 2 mines to her inventory
 void addGas();
-
 	- Adds 5 gas cans to her inventory
 void addVacc();
-
 	- Adds a vaccine to her inventory
 virtual void useExit();
-
 	- Play sfx, ends level
 	- Overridden virtual function
 virtual void beMurdered();
-
 	- (if not already dead) Play sfx, die 
 	- Overridden virtual function
 int getVaccs();
-
 	- Returns number of vaccines to display in status
 int getFlames();
-
 	- Returns number of flames to display in status
 int getMines();
 	- Returns number of landmines to display in status
@@ -135,7 +124,6 @@ Citizen
 Citizen(double x, double y, StudentWorld* world);
 	- Passes stuff to Human. I'm sensing a pattern here
 virtual void doSomething();
-
 	- Does what the spec says
 		- Check if paralyzed. Don't do anything if true.
 		- Calculate distance from nearest zombie and distance from Penelope
@@ -144,7 +132,6 @@ virtual void doSomething();
 		- Or sits
 	- Overridden virtual function
 virtual void useExit();
-
 	- Woohoo! Escape! Get points!
 	- Overridden virtual function
 virtual void beMurdered();
@@ -155,7 +142,6 @@ Zombies
 -------------------------------------------------------------------------------------------------------
 Zombies(double startX, double startY, StudentWorld* world, Direction dir = 0, int depth = 0,
 	double size = 1.0);
-
 	- Passes things to Bounded
 virtual bool canBeDestroyed();
 	- True. Zombies are also squishy
@@ -178,13 +164,11 @@ virtual void beMurdered()
 DumbZombie
 -------------------------------------------------------------------------------------------------------
 DumbZombie(double x, double y, StudentWorld* world);
-
 	- Passes stuff to Zombie
 
 SmartZombie
 -------------------------------------------------------------------------------------------------------
 SmartZombie(double x, double y, StudentWorld* world);
-
 	- Passes stuff to Zombie
 
 Unbounded
@@ -199,14 +183,11 @@ virtual bool checkIntersect();
 Exit
 -------------------------------------------------------------------------------------------------------
 Exit(double x, double y, StudentWorld* world);
-
 	- Passes everything to Unbounded
 virtual void doSomething();
-
 	- Waits for something to overlap with it
 	- Overridden virtual function
 virtual bool blocksFlames();
-
 	- Yes. They do. The spec says so 
 	- Overridden virtual function
 virtual void activate(Actor* o);
@@ -217,13 +198,11 @@ Goodies
 -------------------------------------------------------------------------------------------------------
 Goodies(int imageID, double startX, double startY, StudentWorld* world, Direction dir = 0,
 	int depth = 0, double size = 0);
-
 	- Guess what this does? Yup, it passes its parameters to Unbounded
 virtual bool canBeDestroyed();
 	- Yes. It's a fact
 	- Overridden virtual function
 virtual void activate(Actor* o);
-
 	- If overlaps with Penelope, let her pick up a goodie
 	- Overridden virtual function
 virtual void doSomething();
@@ -233,7 +212,6 @@ virtual void doSomething();
 Vaccine
 -------------------------------------------------------------------------------------------------------
 Vaccine(double x, double y, StudentWorld* world);
-
 	- Yes yes, passes things to Goodies
 
 GasCan
@@ -249,11 +227,9 @@ LandmineGoodie(double x, double y, StudentWorld* world);
 Vomit
 -------------------------------------------------------------------------------------------------------
 Vomit(double x, double y, StudentWorld* world, Direction dir);
-
 	- Passes things to Unbounded
 	- Sets m_life to 2
 virtual void doSomething();
-
 	- Check if something overlaps with it
 	- Decrements life or makes it dead if it has no more life
 	- Overridden virtual function
@@ -264,11 +240,9 @@ virtual void activate(Actor* o);
 Flame
 -------------------------------------------------------------------------------------------------------
 Flame(double x, double y, StudentWorld* world, Direction dir);
-
 	- Did you just read my mind? Because yes, this passes things to Unbounded
 	- Sets m_life to 2
 virtual void doSomething();
-
 	- Check if something overlaps with it
 	- Decrements life or makes it dead if it has no more life
 	- Overridden virtual function
@@ -279,10 +253,8 @@ virtual void activate(Actor* o);
 Pit
 -------------------------------------------------------------------------------------------------------
 Pit(double x, double y, StudentWorld* world);
-
 	- Did you just read my mind? Because yes, this passes things to Unbounded
 virtual void doSomething();
-
 	- Wait for something to overlap with it
 	- Overridden virtual function
 virtual void activate(Actor* o);
@@ -292,7 +264,6 @@ virtual void activate(Actor* o);
 Landmine
 -------------------------------------------------------------------------------------------------------
 Landmine(double x, double y, StudentWorld* world);
-
 	- Yes, I copied and pasted. Because this passes things to Unbounded
 	- Sets m_safety to 30
 virtual void doSomething();
@@ -300,11 +271,9 @@ virtual void doSomething();
 	- Wait for something to overlap
 	- Overridden virtual function
 virtual bool canBeDestroyed();
-
 	- Yes. It can. Fight me. 
 	- Overridden virtual function
 virtual void activate(Actor* o);
-
 	- If a human (canBeInfected()) or a zombie (isDangerous()) overlaps, murder itself
 	- Overridden virtual function
 virtual void beMurdered();
@@ -325,13 +294,10 @@ virtual int init();
 virtual int move();
 	- Overridden virtual function
 virtual void cleanUp();
-
 	- Overridden virtual function
 Penelope* getPenelope() const;
-
 	- Returns m_penelope pointer. Useful for goodies to call her functions that aren't in Actor
 void doOnOverlap(Actor* o);
-
 	- Runs through list of Actors
 	- If iterator if pointing a different Actor than o
 		- calculate delta x and delta y using the the x and y coordinates of o and the x and y
@@ -343,23 +309,19 @@ bool doesOverlap(Actor* o);
 	- Runs through list of Actors
 		- Returns true if any object is within 10 pixels
 bool doesIntersect(double x, double y, Actor* o) const;
-
 	- Runs through list of Actors
 	- If iterator is pointing to a different Actor than o and checkIntersect() is true
 		- Check if the bottom left corner, bottom right corner, top right corner, and top left
 		  corner of o is in the range of the bound box of the iterator
 bool flameBlocked(Actor* o) const;
-
 	- Runs through the list of Actors. Does Euclidean distance for each, but
 		1. first checks if the iterator blocksFlames()
 		2. returns true immediately if any object is in range
 bool shouldVomit(double x, double y) const;
-
 	- Runs through the list of Actors. Does Euclidean distance for each, but
 		1. first checks if the iterator canBeInfected() (is a human)
 		2. returns true immediately if any human is in range
 bool shouldPursue(Actor* o, Actor*& target) const;
-
 	- Runs through the list of Actors. Does Euclidean distance for each, but
 		1. first checks if the iterator canBeInfected() (is a human)
 		2. records the minimum distance from a target if the minimum is < 6401 (80^2 + 1)
@@ -369,7 +331,6 @@ bool shouldPursue(Actor* o, Actor*& target) const;
 		4. returns true if min was changed to be <= 6400, which would indicate that there
 		   is a target within 80 pixels of the actor o
 void followOrRun(double x, double y, double& sqdist_z, double& sqdist_p) const;
-
 	- Does the Euclidean distance between Penelope and the passed in x and y parameters. Stores
 	  that value in the sqdist_p reference parameter
 	- Sets sqdist_z to -1
@@ -378,22 +339,18 @@ void followOrRun(double x, double y, double& sqdist_z, double& sqdist_p) const;
 		2. stores the distance from the nearest zombie in the sqdist_z reference parameter
 			- if there were no zombies, sqdist_z remains with the value of -1
 bool noHumans() const;
-
 	- Returns true if there are no surviving citizens
 	- Runs through the list of Actors, returns false if anyCanBeInfected() and is not Penelope
 	- Otherwise, return true
 void removeDead();
-
 	- Removes dead actors, excluding Penelope
 	- Runs through list starting from the second item. 
 		- If the current item in the list points to an object that is not alive, delete the
 		  object and erase the item from the list
 void addActor(Actor* a);
-
 	- Adds an actor to the list of actors
 	- Literally does that using push_back()
 void levelComplete();
-
 	- Sets m_complete to be true so move() will know when to stop
 void updateStatus();
 	- Updates the status string at the top of the screen
@@ -427,14 +384,12 @@ bool Bounded::setSmartDir(Actor* o, Actor* t);
 	- Returns true if the direction was set and false if it wasn't
 		- For citizens, this function will also move them if it returns true
 bool Citizen::beSmarter(Actor* o, Direction d);
-
 	- Private overridden virtual function
 	- If two directions are possible, Citizens will also check if moving in this direction is
 	  possible. If it is, the citizen will move and this returns true. If not, this will return 
 	  false.
 	- If this returns false, setSmartDir will check the other direction or return false. 
 bool Citizen::calcRunWhere(double x, double y, double osqd_z);
-
 	- This would be when a citizen is trying to run away from a zombie.
 	- It will calculate the direction a citizen should move in that would make it have the greatest
 	  distance from the nearest zombie. 
