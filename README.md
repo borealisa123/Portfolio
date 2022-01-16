@@ -5,11 +5,16 @@
 - Worked with files that contained ~3 million bases (e.g. Ferroglobus_placidus's genome), storing the information in tries
 - Searched the tries and found exact matches and SNiPs (single nucleotide polymorphisms, i.e. an exact match excluding one base) of short DNA sequences
 
+### Modeling and Predicting Stroke (Python in Jupyter Notebook)
+- Visualized and preprocessed the data (imputing, resampling, normalizing, encoding features, and crossing features)
+- Trained models (logistic regression, neural network, spuport vector machine, and decision tree) and evaluated accuracy
+- Applied techniques such as PCA and bootstrap aggregation
+
 ### Sokoban Solver (LISP)
-- function goal-test checks if the end condition of the search problem has been met, i.e. all the boxes and the keeper are on goal positions
-- function next-states takes a state and generates all the possible states that could be reached in one move
-- function heuristic305110110 is an admissible heuristic that adds a high cost for moves that would make the game unsolvable
-- generated some test cases according to the following mapping: blank=0, wall=1, box=2, keeper=3, goal=4, box+goal=5, keeper+goal=6
+- Checked if the end condition of the search problem had been met, i.e. all the boxes and the keeper are on goal positions (goal-test)
+- Took the current state and generated all the possible states that could be reached in one move (next-states)
+- Wrote an admissible heuristic that adds a high cost for moves that would make the game unsolvable (heuristic305110110)
+- Generated some test cases according to the following mapping: blank=0, wall=1, box=2, keeper=3, goal=4, box+goal=5, keeper+goal=6
 
 
 ### Zombie Dash (C++)
